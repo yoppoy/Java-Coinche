@@ -1,0 +1,32 @@
+group 'jcoinche'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+task "tests"(type: GradleBuild) {
+    dependsOn "package"
+}
+
+task "package"{
+    dependsOn "jcoinche_server:server"
+    dependsOn "jcoinche_client:client"
+}
+
+task client(type: GradleBuild) {
+    dependsOn "jcoinche_client:client"
+}
+
+task server(type: GradleBuild) {
+    dependsOn "jcoinche_server:server"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

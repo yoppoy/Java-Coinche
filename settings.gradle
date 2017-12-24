@@ -1,0 +1,4 @@
+rootProject.name = 'jcoinche'
+include 'jcoinche_server'
+include 'jcoinche_client'
+
